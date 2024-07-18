@@ -1,32 +1,21 @@
 
+'use client'
+
 import { Button } from "@/components/ui/button"
 import {
     Card,
     CardContent,
-    CardDescription,
     CardFooter,
     CardHeader,
-    CardTitle,
 } from "@/components/ui/card"
 import Image from "next/image"
 
-const fetchRandomMeals = async () => {
-    try {
-        let response = await fetch('https://www.themealdb.com/api/json/v1/1/random.php')
-        let data = await response.json()
-        return data.meals
-    } catch (error) {
-        console.log(error)
-    }
-}
 
-export default async function SearchRandomMeals() {
-    const randomMeal = await fetchRandomMeals()
-    
+export default  function MealCard({ mealCardData }) {
     return (
-        <div>
+        <div className="flex gap-4 flex-wrap">
             {
-                randomMeal && randomMeal.length > 0 && randomMeal.map((meal, index) => {
+                mealCardData && mealCardData.length > 0 && mealCardData.map((meal, index) => {
                     return (
                         <div key={meal?.idMeal}>
                             <Card className="w-[300px]">

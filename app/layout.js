@@ -13,9 +13,9 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body className={inter.className}>
-        <div className="min-h-screen">
+        <div className="min-h-screen min-w-full overflow-hidden">
           <Header />
-          <main className="flex-grow">{children}</main>
+          <main className="w-full max-w-screen-lg mx-auto p-4">{children}</main>
         </div>
       </body>
     </html>
